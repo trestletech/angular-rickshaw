@@ -31,7 +31,8 @@ angular.module('angular-rickshaw', [])
                 scope: {
                     options: '=rickshawOptions',
                     series: '=rickshawSeries',
-                    features: '=rickshawFeatures'
+                    features: '=rickshawFeatures',
+                    graph: '=rickshawGraph'
                 },
                 // replace: true,
                 link: function(scope, element, attrs) {
@@ -99,6 +100,7 @@ angular.module('angular-rickshaw', [])
                             settings.series = scope.series;
 
                             graph = new Rickshaw.Graph(settings);
+                            scope.graph = graph;
                         }
                         else {
                             if (scope.options) {
