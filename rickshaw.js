@@ -144,6 +144,10 @@ angular.module('angular-rickshaw', [])
                                     var time = new Rickshaw.Fixtures.Time();
                                     xAxisConfig.timeUnit = time.unit(scope.features.xAxis.timeUnit);
                                 }
+                                if (scope.features.xAxis.timeUnitFn) {
+                                    var time = new Rickshaw.Fixtures.Time();
+                                    xAxisConfig.timeUnit = scope.features.xAxis.timeUnitFn;
+                                }
                                 if (scope.features.xAxis.tickFormat) {
                                     xAxisConfig.tickFormat = scope.features.xAxis.tickFormat;
                                 }
