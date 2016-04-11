@@ -154,7 +154,7 @@ angular.module('angular-rickshaw', [])
                                     xAxisConfig.ticksTreatment = scope.features.xAxis.ticksTreatment;
                                 }
                                 if (!xAxis) {
-                                    xAxis = new Rickshaw.Graph.Axis.X(xAxisConfig);
+                                    xAxis = new Rickshaw.Graph.Axis.Time(xAxisConfig);
                                     xAxis.render();
                                 }
                                 else {
