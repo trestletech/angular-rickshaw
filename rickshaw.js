@@ -31,7 +31,8 @@ angular.module('angular-rickshaw', [])
                 scope: {
                     options: '=rickshawOptions',
                     series: '=rickshawSeries',
-                    features: '=rickshawFeatures'
+                    features: '=rickshawFeatures',
+                    graph: '=rickshawGraph'
                 },
                 // replace: true,
                 link: function(scope, element, attrs) {
@@ -99,6 +100,7 @@ angular.module('angular-rickshaw', [])
                             settings.series = scope.series;
 
                             graph = new Rickshaw.Graph(settings);
+                            scope.graph = graph;
                         }
                         else {
                             if (scope.options) {
@@ -141,6 +143,9 @@ angular.module('angular-rickshaw', [])
                                 if (scope.features.xAxis.timeUnit) {
                                     var time = new Rickshaw.Fixtures.Time();
                                     xAxisConfig.timeUnit = time.unit(scope.features.xAxis.timeUnit);
+                                }
+                                if (scope.features.xAxis.timeUnitFn) {
+                                    xAxisConfig.timeUnit = scope.features.xAxis.timeUnitFn;
                                 }
                                 if (scope.features.xAxis.tickFormat) {
                                     xAxisConfig.tickFormat = scope.features.xAxis.tickFormat;
